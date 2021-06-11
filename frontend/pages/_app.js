@@ -10,11 +10,9 @@ const { publicRuntimeConfig } = getConfig();
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <Provider session={pageProps.session}>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
   );
 };
 
