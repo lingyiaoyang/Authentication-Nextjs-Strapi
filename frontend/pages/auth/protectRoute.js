@@ -1,7 +1,8 @@
 // HOC/withAuth.jsx
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import verifyToken from 'services/verifyToken';
+// import verifyToken from 'services/verifyToken';
+import jwt_decode from 'jwt-decode';
 
 const withAuth = (WrappedComponent) => {
   return (props) => {
@@ -10,12 +11,14 @@ const withAuth = (WrappedComponent) => {
 
     useEffect(async () => {
       const accessToken = localStorage.getItem('jwt');
+
       // if no accessToken was found,then we redirect to "/" page.
       if (!accessToken) {
         Router.replace('/auth/login');
       } else {
         // we call the api that verifies the token.
         const data = await verifyToken(accessToken);
+        const decoded = jwt_decode(accessToken);
         // if token was verified we set the state.
         if (data.verified) {
           setVerified(data.verified);

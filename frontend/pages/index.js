@@ -4,17 +4,5 @@ import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '500px',
-        border: '1px solid red',
-      }}
-    >
-      nothing here
-    </div>
-  );
+  return <div style={{ margin: '100px' }}>nothing here</div>;
 }
