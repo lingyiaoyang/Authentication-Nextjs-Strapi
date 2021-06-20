@@ -39,7 +39,7 @@ const Login = () => {
     // });
     localStorage.setItem('jwt', loginResponse.jwt);
 
-    router.push('/');
+    router.push('/about');
   }
 
   return (

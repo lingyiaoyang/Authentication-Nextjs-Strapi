@@ -12,7 +12,7 @@ const withAuth = (WrappedComponent) => {
       // If there is no access token we redirect to "/" page.
       if (!accessToken) {
         useEffect(() => {
-          Router.push('/auth/login');
+          Router.replace('/auth/login');
         }, []);
 
         return null;

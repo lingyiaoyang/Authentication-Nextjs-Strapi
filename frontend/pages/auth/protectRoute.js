@@ -17,10 +17,11 @@ const withAuth = (WrappedComponent) => {
         Router.replace('/auth/login');
       } else {
         // we call the api that verifies the token.
-        const data = await verifyToken(accessToken);
-        const decoded = jwt_decode(accessToken);
+
+        const accessToken = localStorage.getItem('jwt');
+
         // if token was verified we set the state.
-        if (data.verified) {
+        if (decodedHeader.verified) {
           setVerified(data.verified);
         } else {
           // If the token was fraud we first remove it from localStorage and then redirect to "/"
